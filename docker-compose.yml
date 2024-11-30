@@ -1,0 +1,12 @@
+services:
+  kaggle-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: kaggle-dataset-app
+    volumes:
+      - ~/.kaggle:/root/.kaggle # Mount Kaggle API credentials
+    environment:
+      - KAGGLE_CONFIG_DIR=/root/.kaggle # Path for Kaggle API credentials
+    stdin_open: true
+    tty: true
